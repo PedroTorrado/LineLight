@@ -1,29 +1,30 @@
 //RV_2.4
 
-//Code for arduino nano to function as a Bluetooth Master in order to controll the Blinkers main board 
+//Code for arduino nano to function as a Bluetooth Master in order to controll the Blinkers main board
 //Revision 2.3 of the main board of the Controller
 //Code writen and edited by Pedro Torrado
 
-//Diferences from last Revision (1.2 - 2.0) 
+//Diferences from last Revision (1.2 - 2.0)
   //Improved code and performance
   //Improved comments in order to easier understanding
     //MOST IMPORTANT//
   //Created two way signal communication which makes possible :
-  //Verification of the signal sent through Serial Monitor and visable LEDs in order to Warn the user in case the communication didn't work as planned 
+  //Verification of the signal sent through Serial Monitor and visable LEDs in order to Warn the user in case the communication didn't work as planned
 
-//Differences from 2.0 
+//Differences from 2.0
   //Verification turned into a function in order to reduce delay between comunication and avoid delays
 
 //Differences from 2.1
   //delay functions devided in order to have time to recieve the information without having to wait the full 1000ms
 
 //Differences from 2.2
-  //Verification after checking bluetooth signal in order to have better response to led state commands from slave 
+  //Verification after checking bluetooth signal in order to have better response to led state commands from slave
 
 //Differences from 2.3
   //Connection confirmation
   //Variable request in order to verify the led status
 
+#include <Arduino.h>
 #include <SoftwareSerial.h>
 SoftwareSerial bt(2, 3);  //RX, TX
 
@@ -41,7 +42,7 @@ void setup() {
   //Bluetooth RX and TX defined
   pinMode(2, INPUT);
   pinMode(3, OUTPUT);
-  
+
   //HC06 enable pin set to high
   pinMode(9, OUTPUT);
   digitalWrite(bt_enable, HIGH);
@@ -53,7 +54,7 @@ void setup() {
 
   //Verification LEDs defined
   pinMode(left_led, OUTPUT);
-  pinMode(right_led, OUTPUT); 
+  pinMode(right_led, OUTPUT);
 
   Serial.begin(9600);
   Serial.println("Start Cntrlr");
@@ -93,7 +94,7 @@ void verification(){
   else{
     Serial.println("Input error : Not intended result or verification");
   }
-  
+
 }
 
 void loop() {
@@ -104,12 +105,12 @@ void loop() {
 
   left_state = digitalRead(left_hes);
   right_state = digitalRead(right_hes);
-  //Show the output in Serial for troubleshooting  
+  //Show the output in Serial for troubleshooting
   //Serial.println(right_state);
   if (Serial.available()){
     bt.write(Serial.read());
   }
-                      
+
   if (right_state == LOW) {
     Serial.println("Right");
     //Show the output in Serial for troubleshooting

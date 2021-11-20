@@ -4,22 +4,23 @@
 //Revision 2.1 of the main board of the Reciever
 //Code written and edited by Pedro Torrado
 
-//Differences from last Revision (1.1) 
+//Differences from last Revision (1.1)
   //Improved code and performance
   //Improved comments to easier understanding
     //MOST IMPORTANT//
   //Created two-way signal communication which makes possible :
-  //Verification of the signal sent through Serial Monitor and visible LEDs to Warn the user in case the communication didn't work as planned 
+  //Verification of the signal sent through Serial Monitor and visible LEDs to Warn the user in case the communication didn't work as planned
 
 //Differences 2.0
   //Command '0' added for toubleshooting
-  //Command '3' removed 
+  //Command '3' removed
 
 //Differences 2.1
   //Connection confirmation
   //leftstate and rightstate functions created
   //Command '9' added to check output status and send validation data
 
+#include <Arduino.h>
 #include <SoftwareSerial.h>
 SoftwareSerial bt(3, 2);  //RX, TX
 
@@ -75,7 +76,7 @@ void rightstate(){
 void loop() {
 
   if(bt.available()>0 or Serial.available()){
-      
+
     char command = bt.read();
     serial_command = Serial.read();
 
@@ -97,7 +98,7 @@ void loop() {
     }
 
     if (command == '0' or serial_command == '0'){
-        
+
       //used to troubleshoot communication between modules
       //sends and receives all the information needed for two-way communication and hardware check
       //can't be achieved through hardware
@@ -121,7 +122,7 @@ void loop() {
       }
 
       new_lr_state = lr_state;
-        
+
       if (lr_state == 1){
         bt.write(11);
         bt.write(21);
