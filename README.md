@@ -2,6 +2,8 @@
 
 ## Introduction
 
+![alt text](https://github.com/PedroTorrado/LineLight/blob/main/Images/Line_Light_LOGO_v2.png)
+
 This project was created with the objective of creating a safer environment for all means of transport and vehicles in the streets.
 
 This should be accomplished by having a device that helps drivers of means of transportation without turn signals (blinkers), 
