@@ -1,8 +1,8 @@
+<img src="https://github.com/PedroTorrado/LineLight/blob/main/Images/Line_Light_LOGO_v2.png" alt="drawing" width="100"/>
+
 # LineLight
 
 ## Introduction
-
-![alt text](https://github.com/PedroTorrado/LineLight/blob/main/Images/Line_Light_LOGO_v2.png)
 
 This project was created with the objective of creating a safer environment for all means of transport and vehicles in the streets.
 
@@ -48,7 +48,7 @@ wireless communication between a controller (Transmitter) and the main device (R
 
 For the 4th objective to be reached it's important that the components are able to have bidirectional communication so that once a signal is sent by the transmitter, the receiver can send a  signal back confirming it is working as intended.
 
-![alt text](https://github.com/PedroTorrado/LineLight/blob/main/Images/Bidirectional%20communication.png?raw=true)
+<img src="https://github.com/PedroTorrado/LineLight/blob/main/Images/Bidirectional%20communication.png?raw=true" alt="drawing" width="700"/>
 
 Caption:
 
