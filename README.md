@@ -1,4 +1,4 @@
-<img src="https://github.com/PedroTorrado/LineLight/blob/main/Images/Line_Light_LOGO_v2.png" alt="drawing" width="100"/>
+<img src="https://github.com/PedroTorrado/LineLight/blob/main/Images/Line_Light_LOGO_v2.png" alt="Logo" width="100"/>
 
 # LineLight
 
