@@ -48,7 +48,7 @@ wireless communication between a controller (Transmitter) and the main device (R
 
 For the 4th objective to be reached it's important that the components are able to have bidirectional communication so that once a signal is sent by the transmitter, the receiver can send a  signal back confirming it is working as intended.
 
-<img src="https://github.com/PedroTorrado/LineLight/blob/main/Images/Bidirectional%20communication.png?raw=true" alt="drawing" width="700"/>
+<img src="https://github.com/PedroTorrado/LineLight/blob/main/Images/Bidirectional%20communication.png?raw=true" alt="biderectional" width="700"/>
 
 Caption:
 
