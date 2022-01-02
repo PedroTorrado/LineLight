@@ -80,14 +80,15 @@ void loop() {
     char command = bt.read();
     serial_command = Serial.read();
 
-    /*
+    leftstate();
+    rightstate();
+
     if (command != ""){
       Serial.println(command);
     }
     if (serial_command != ""){
       Serial.println(serial_command);
     }
-    */
 
     if(command == '9' or serial_command == '9'){
       Serial.println("Device Paired");
@@ -95,6 +96,7 @@ void loop() {
 
       leftstate();
       rightstate();
+
     }
 
     if (command == '0' or serial_command == '0'){
