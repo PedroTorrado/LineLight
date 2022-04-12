@@ -87,7 +87,7 @@ void loop() {
     if (command != ""){
       Serial.println(command);
     }
-    if (serial_command != ""){
+    else if (serial_command != ""){
       Serial.println(serial_command);
     }
 
@@ -100,7 +100,7 @@ void loop() {
 
     }
 
-    if (command == '0' or serial_command == '0'){
+    else if (command == '0' or serial_command == '0'){
 
       //used to troubleshoot communication between modules
       //sends and receives all the information needed for two-way communication and hardware check
@@ -115,7 +115,7 @@ void loop() {
         left_state = 0;
       }
 
-      if(new_lr_state == 0){
+      else if(new_lr_state == 0){
         digitalWrite(left_led, LOW);
         digitalWrite(right_led, LOW);
         Serial.println("LEFT_&_RIGHT_LOW");
@@ -146,7 +146,7 @@ void loop() {
         Serial.println("LEFT_HIGH");   // print on serial monitor the pin mode
         left_state = 0;
       }
-      if (new_left_state == 0) {
+      else if (new_left_state == 0) {
         digitalWrite(left_led, LOW);  // sets the digital pin 7 OFF
         Serial.println("LEFT_LOW");   // print on serial monitor the pin mode
         left_state = 1;
@@ -166,7 +166,7 @@ void loop() {
         right_state = 0;
       }
 
-      if (new_right_state == 0) {
+      else if (new_right_state == 0) {
         digitalWrite(right_led, LOW);  // sets the digital pin 7 OFF
         Serial.println("RIGHT_LOW");   // print on serial monitor the pin mode
         right_state = 1;
