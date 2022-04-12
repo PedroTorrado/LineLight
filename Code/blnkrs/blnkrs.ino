@@ -40,8 +40,8 @@ void setup() {
   pinMode(3, INPUT);
   pinMode(2, OUTPUT);
 
-  pinMode(left_led, OUTPUT);  // sets the digital pin 7 as output and defines it to left_led variable
-  pinMode(right_led, OUTPUT);  // sets the digital pin 8 as output and defines it to right_led variable
+  pinMode(left_led, OUTPUT);  // sets the digital pin 7 as output
+  pinMode(right_led, OUTPUT);  // sets the digital pin 8 as output
 
   Serial.begin(9600);
   bt.begin(9600);
@@ -97,7 +97,6 @@ void loop() {
 
       leftstate();
       rightstate();
-
     }
 
     else if (command == '0' or serial_command == '0'){
@@ -155,7 +154,6 @@ void loop() {
       new_left_state = left_state;
 
       leftstate();
-
     }
 
     if (command == '2' or serial_command == '2') {
