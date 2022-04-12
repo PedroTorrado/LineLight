@@ -40,12 +40,13 @@ void setup() {
   pinMode(3, INPUT);
   pinMode(2, OUTPUT);
 
-  pinMode(7, OUTPUT);  // sets the digital pin 7 as output and defines it to left_led variable
-  pinMode(8, OUTPUT);  // sets the digital pin 8 as output and defines it to right_led variable
+  pinMode(left_led, OUTPUT);  // sets the digital pin 7 as output and defines it to left_led variable
+  pinMode(right_led, OUTPUT);  // sets the digital pin 8 as output and defines it to right_led variable
 
   Serial.begin(9600);
-  Serial.println("Start Blnkrs");
   bt.begin(9600);
+
+  Serial.println("Start Blnkrs");
 
 }
 

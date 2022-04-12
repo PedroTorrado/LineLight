@@ -68,31 +68,35 @@ void verification(){
   if (bt.available()>0) {
     verification_code = bt.read();
     //Serial.println(verification_code); //Shows the byte sent from the slave for troubleshooting
-  }
 
-  if(verification_code == 10){
-    digitalWrite(left_led, HIGH);
-    //Shows what type of confirmation it has recieved, for troubleshooting in case of led problems
-    //Serial.println("left_confirmed_high");
-  }
-  else if(verification_code == 11){
-    digitalWrite(left_led, LOW);
-    //Serial.println("left_confirmed_low");
-  }
-  else if(verification_code == 20){
-    digitalWrite(right_led, HIGH);
-    //Serial.println("right_confirmed_high");
-  }
-  else if(verification_code == 21){
-    digitalWrite(right_led, LOW);
-    //Serial.println("right_confirmed_low");
-  }
-  else if(verification_code == 91){
-    Serial.println("Device Paired");
-  }
+    if(verification_code == 10){
+      digitalWrite(left_led, HIGH);
+      //Shows what type of confirmation it has recieved, for troubleshooting in case of led problems
+      //Serial.println("left_confirmed_high");
+    }
+    else if(verification_code == 11){
+      digitalWrite(left_led, LOW);
+      //Serial.println("left_confirmed_low");
+    }
+    else if(verification_code == 20){
+      digitalWrite(right_led, HIGH);
+      //Serial.println("right_confirmed_high");
+    }
+    else if(verification_code == 21){
+      digitalWrite(right_led, LOW);
+      //Serial.println("right_confirmed_low");
+    }
+    else if(verification_code == 91){
+      Serial.println("Device Paired");
+    }
 
+    else{
+      Serial.println("Input error : Not intended result or verification");
+    }
+
+  }
   else{
-    Serial.println("Input error : Not intended result or verification");
+    verification_code = "";
   }
 
 }
