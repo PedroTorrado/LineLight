@@ -47,15 +47,17 @@ void setup() {
   bt.begin(9600);
 
   Serial.println("Start Blnkrs");
-
 }
 
 void leftstate(){
   if(left_state == 0){
     bt.write(10);
+    Serial.println("Verification Code Sent: 10");
+
   }
   else if(left_state == 1){
     bt.write(11);
+    Serial.println("Verification Code Sent: 11");
   }
   else {
     Serial.println("Input error : state was changed but the result isn't valid");
@@ -65,9 +67,11 @@ void leftstate(){
 void rightstate(){
   if (right_state == 1){
     bt.write(21);
+    Serial.println("Verification Code Sent: 21");
   }
   else if (right_state == 0){
     bt.write(20);
+    Serial.println("Verification Code Sent: 20");
   }
   else{
     Serial.println("Input error : state was changed but the result isn't valid");
@@ -76,11 +80,16 @@ void rightstate(){
 
 void loop() {
 
+  //include both functions for verification
+  int leftstate();
+  int rightstate();
+
   if(bt.available()>0 or Serial.available()){
 
     char command = bt.read();
     serial_command = Serial.read();
 
+    //update and refresh verification LEDs on Controller
     leftstate();
     rightstate();
 
@@ -93,8 +102,7 @@ void loop() {
 
     if(command == '9' or serial_command == '9'){
       Serial.println("Device Paired");
-      bt.write(91);
-
+      bt.write(91); // Verification Code sent to Controller to verify connection
       leftstate();
       rightstate();
     }
@@ -126,12 +134,12 @@ void loop() {
       new_lr_state = lr_state;
 
       if (lr_state == 1){
-        bt.write(11);
-        bt.write(21);
+        bt.write(11); // Verification Code sent to Controller to left Blinker
+        bt.write(21); // Verification Code sent to Controller to Right Blinker
       }
       else if (lr_state == 0){
-        bt.write(10);
-        bt.write(20);
+        bt.write(10); // Verification Code sent to Controller to left Blinker
+        bt.write(20); // Verification Code sent to Controller to Right Blinker
       }
       else{
         Serial.println("Input error : the state was changed but the result isn't valid");
@@ -150,9 +158,7 @@ void loop() {
         Serial.println("LEFT_LOW");   // print on serial monitor the pin mode
         left_state = 1;
       }
-
       new_left_state = left_state;
-
       leftstate();
     }
 
@@ -169,11 +175,8 @@ void loop() {
         Serial.println("RIGHT_LOW");   // print on serial monitor the pin mode
         right_state = 1;
       }
-
       new_right_state = right_state;
-
       rightstate();
-
     }
   }
 }
