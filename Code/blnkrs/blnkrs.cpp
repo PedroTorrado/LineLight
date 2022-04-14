@@ -53,7 +53,6 @@ void leftstate(){
   if(left_state == 0){
     bt.write(10);
     Serial.println("Verification Code Sent: 10");
-
   }
   else if(left_state == 1){
     bt.write(11);
