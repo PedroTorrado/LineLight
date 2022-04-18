@@ -88,10 +88,6 @@ void loop() {
     char command = bt.read();
     serial_command = Serial.read();
 
-    //update and refresh verification LEDs on Controller
-    leftstate();
-    rightstate();
-
     if (command != ""){
       Serial.println(command);
     }
