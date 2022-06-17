@@ -171,6 +171,7 @@ void loop() {
         right_state = 1;
       }
       new_right_state = right_state;
+      rightstate();
     }
   }
 }

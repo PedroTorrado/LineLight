@@ -28,8 +28,8 @@
 #include <SoftwareSerial.h>
 SoftwareSerial bt(2, 3);  //RX, TX
 
-#define right_hes 5
-#define left_hes 4
+#define right_hes 4
+#define left_hes 5
 #define bt_enable 9
 #define left_led 7
 #define right_led 8
@@ -43,9 +43,9 @@ void setup() {
   pinMode(2, INPUT);
   pinMode(3, OUTPUT);
 
-  //HC06 enable pin set to high
+  //HC06 enable pin set to LOW
   pinMode(9, OUTPUT);
-  digitalWrite(bt_enable, HIGH);
+  digitalWrite(bt_enable, LOW);
   bt.begin(9600);
 
   //Hall Effect Sensors defined
