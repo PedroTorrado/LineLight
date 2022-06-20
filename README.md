@@ -68,4 +68,4 @@ Briefly, the 5th objective is hinting at the importance that the device is not o
 
 ---
 
-The 7th and last objective (to be defined by now), is related to the reparation of the device in case something is no longer functional, for this the device should be made modular so that in case some part of it breaks it's possible (and) easy to replace it and therefore fix the device.
+The 7th and last objective (defined until now), is related to the reparation of the device in case something is no longer functional, for this the device should be made modular so that in case some part of it breaks it's possible (and) easy to replace it and therefore fix the device.
