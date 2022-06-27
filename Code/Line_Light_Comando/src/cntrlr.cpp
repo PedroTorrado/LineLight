@@ -61,6 +61,9 @@ void setup() {
 
   bt.write('9');
   Serial.println("Pairing...");
+
+  left_state = digitalRead(left_hes);
+  right_state = digitalRead(right_hes);
 }
 
 void verification(){
@@ -96,42 +99,42 @@ void verification(){
 
   }
   else{
-    verification_code = "";
+    verification_code = 00;
   }
 
 }
 
 void loop() {
 
+  left_state = digitalRead(left_hes);
+  right_state = digitalRead(right_hes);
+
   if (bt.available()>0) {
     verification();
   }
 
-  left_state = digitalRead(left_hes);
-  right_state = digitalRead(right_hes);
   //Show the output in Serial for troubleshooting
   //Serial.println(right_state);
   if (Serial.available()){
     bt.write(Serial.read());
   }
 
-  if (digitalRead(right_hes) == LOW) {
+  else if (right_state == LOW) {
     Serial.println("Right");
     //Show the output in Serial for troubleshooting
     //Serial.println('2');
     bt.write('2');
     delay(200);
-    verification();
-    delay(800);
   }
 
-  if (digitalRead(left_hes) == LOW) {
+  else if (left_state == LOW) {
     Serial.println("Left");
     //Show the output in Serial for troubleshooting
     //Serial.println('1');
     bt.write('1');
     delay(200);
-    verification();
-    delay(800);
   }
+
+  else{}
+
 }
