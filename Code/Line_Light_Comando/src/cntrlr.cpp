@@ -115,7 +115,7 @@ void loop() {
     bt.write(Serial.read());
   }
 
-  if (right_state == LOW) {
+  if (digitalRead(right_hes) == LOW) {
     Serial.println("Right");
     //Show the output in Serial for troubleshooting
     //Serial.println('2');
@@ -125,7 +125,7 @@ void loop() {
     delay(800);
   }
 
-  if (left_state == LOW) {
+  if (digitalRead(left_hes) == LOW) {
     Serial.println("Left");
     //Show the output in Serial for troubleshooting
     //Serial.println('1');
